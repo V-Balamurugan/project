@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import Boolean, DateTime, Float, String
+from sqlalchemy import DateTime, Float, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.database import Base
@@ -51,9 +51,9 @@ class Branch(Base):
         nullable=True
     )
 
-    status: Mapped[bool] = mapped_column(
-        Boolean,
-        default=True,
+    status: Mapped[str] = mapped_column(
+        String(20),
+        default="ACTIVE",
         nullable=False
     )
 

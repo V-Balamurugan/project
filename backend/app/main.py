@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.database import Base, engine
 from app.models import Branch, Employee, Parcel
 from app.routers.dashboard import router as dashboard_router
-
+from app.routers.branch import router as branch_router
 
 Base.metadata.create_all(bind=engine)
 
@@ -37,7 +37,7 @@ app.add_middleware(
 # ---------------------------------------------------------
 
 app.include_router(dashboard_router)
-
+app.include_router(branch_router)
 
 # ---------------------------------------------------------
 # Root
