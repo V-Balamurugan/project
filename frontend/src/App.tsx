@@ -8,7 +8,8 @@ import {
 import AdminLayout from "./components/layouts/AdminLayout";
 import Dashboard from "./pages/Dashboard";
 import BranchManagement from "./pages/BranchManagement";
-import Comingsoon from "./pages/comingsoon";
+import EmployeeManagement from "./pages/EmployeeManagement";
+import ComingSoon from "./pages/CommingSoon";
 
 function App() {
   return (
@@ -32,76 +33,76 @@ function App() {
 
           <Route
             path="/employees"
-            element={<Comingsoon />}
+            element={<EmployeeManagement />}
           />
 
           <Route
             path="/parcels"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           <Route
             path="/assignments"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           <Route
             path="/tracking"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           {/* Intelligence */}
           <Route
             path="/routes"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           <Route
             path="/delay-prediction"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           <Route
             path="/prioritization"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           <Route
             path="/analytics"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           {/* Maps */}
           <Route
             path="/live-map"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           <Route
             path="/branch-map"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           {/* System */}
           <Route
             path="/reports"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           <Route
             path="/settings"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           <Route
             path="/system-status"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
           {/* Profile */}
           <Route
             path="/profile"
-            element={<Comingsoon />}
+            element={<ComingSoon />}
           />
 
         </Route>

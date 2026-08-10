@@ -85,6 +85,16 @@ const BranchForm = ({
     event.preventDefault();
     setError("");
 
+    if (!form.latitude.trim()) {
+      setError("Latitude is required.");
+      return;
+    }
+
+    if (!form.longitude.trim()) {
+      setError("Longitude is required.");
+      return;
+    }
+
     const latitude = Number(form.latitude);
     const longitude = Number(form.longitude);
 
@@ -125,8 +135,16 @@ const BranchForm = ({
 
     try {
       await onSubmit(data);
-    } catch {
-      setError("Unable to save branch.");
+    } catch (err: unknown) {
+      const axiosErr = err as {
+        response?: { data?: { detail?: string } };
+      };
+      const detail = axiosErr?.response?.data?.detail;
+      setError(
+        typeof detail === "string"
+          ? detail
+          : "Unable to save branch."
+      );
     }
   };
 

@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timezone
 
 from sqlalchemy import func
 from sqlalchemy.orm import Session
@@ -54,7 +54,7 @@ class DashboardService:
             or 0
         )
 
-        today = datetime.utcnow().date()
+        today = datetime.now(timezone.utc).date()
 
         today_deliveries = (
             db.query(func.count(Parcel.id))

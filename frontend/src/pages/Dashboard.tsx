@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import type { DashboardSummary } from "../types/dashboard";
-import { getDashboardSummary } from "../services/dashboard_Service";
+import { getDashboardSummary } from "../services/dashboardService";
 
 
 export default function Dashboard() {

@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import random
 
 from app.core.database import Base, SessionLocal, engine
@@ -176,7 +176,7 @@ for i in range(1, 31):
             "ACTIVE",
             "ACTIVE",
             "ACTIVE",
-            "ON_LEAVE"
+            "INACTIVE"
         ]),
         current_latitude=branch.latitude + random.uniform(
             -0.05,
@@ -245,7 +245,7 @@ for i in range(1, 101):
 
     status = random.choice(parcel_statuses)
 
-    created_at = datetime.utcnow() - timedelta(
+    created_at = datetime.now(timezone.utc) - timedelta(
         days=random.randint(0, 30),
         hours=random.randint(0, 23)
     )
