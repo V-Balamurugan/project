@@ -345,7 +345,15 @@ const EmployeeManagement = () => {
   // ==========================================================
 
   useEffect(() => {
-    loadBranches();
+    let isMounted = true;
+    void Promise.resolve().then(() => {
+      if (isMounted) {
+        void loadBranches();
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
   }, [loadBranches]);
 
   // ==========================================================

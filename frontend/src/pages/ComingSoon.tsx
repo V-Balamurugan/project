@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
-const ComingSoon = () => {
+export const ComingSoon = () => {
   const location = useLocation();
   const navigate = useNavigate();
 

@@ -6,7 +6,7 @@ from app.models import Branch, Employee, Parcel
 from app.routers.dashboard import router as dashboard_router
 from app.routers.branch import router as branch_router
 from app.routers.employee import router as employee_router
-
+from app.routers.parcel import router as parcel_router
 
 Base.metadata.create_all(bind=engine)
 
@@ -41,7 +41,7 @@ app.add_middleware(
 app.include_router(dashboard_router)
 app.include_router(branch_router)
 app.include_router(employee_router)
-
+app.include_router(parcel_router)      
 # ---------------------------------------------------------
 # Root
 # ---------------------------------------------------------

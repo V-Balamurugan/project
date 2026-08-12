@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type {
   Branch,
   BranchCreate,
@@ -47,24 +47,25 @@ const BranchForm = ({
 
   const editing = Boolean(branch);
 
-  useEffect(() => {
-    if (branch) {
-      setForm({
-        branch_code: branch.branch_code,
-        branch_name: branch.branch_name,
-        address: branch.address,
-        city: branch.city,
-        latitude: String(branch.latitude),
-        longitude: String(branch.longitude),
-        phone: branch.phone ?? "",
-        status: branch.status,
-      });
-    } else {
-      setForm(emptyForm);
-    }
-
+  const [prevBranch, setPrevBranch] = useState<Branch | null | undefined>(undefined);
+  if (branch !== prevBranch) {
+    setPrevBranch(branch);
+    setForm(
+      branch
+        ? {
+            branch_code: branch.branch_code,
+            branch_name: branch.branch_name,
+            address: branch.address,
+            city: branch.city,
+            latitude: String(branch.latitude),
+            longitude: String(branch.longitude),
+            phone: branch.phone ?? "",
+            status: branch.status,
+          }
+        : emptyForm
+    );
     setError("");
-  }, [branch]);
+  }
 
   const handleChange = (
     event: React.ChangeEvent<

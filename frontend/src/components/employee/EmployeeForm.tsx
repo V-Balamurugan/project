@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import type {
   Branch,
@@ -44,7 +44,9 @@ const EmployeeForm = ({
   // LOAD EMPLOYEE INTO EDIT FORM
   // ==========================================================
 
-  useEffect(() => {
+  const [prevEmployee, setPrevEmployee] = useState<Employee | null | undefined>(undefined);
+  if (employee !== prevEmployee) {
+    setPrevEmployee(employee);
     if (!employee) {
       setEmployeeCode("");
       setName("");
@@ -55,29 +57,26 @@ const EmployeeForm = ({
       setStatus("ACTIVE");
       setLatitude("");
       setLongitude("");
-      return;
+    } else {
+      setEmployeeCode(employee.employee_code);
+      setName(employee.name);
+      setPhone(employee.phone);
+      setEmail(employee.email);
+      setBranchId(String(employee.branch_id));
+      setVehicleType(employee.vehicle_type);
+      setStatus(employee.status);
+      setLatitude(
+        employee.current_latitude !== null
+          ? String(employee.current_latitude)
+          : ""
+      );
+      setLongitude(
+        employee.current_longitude !== null
+          ? String(employee.current_longitude)
+          : ""
+      );
     }
-
-    setEmployeeCode(employee.employee_code);
-    setName(employee.name);
-    setPhone(employee.phone);
-    setEmail(employee.email);
-    setBranchId(String(employee.branch_id));
-    setVehicleType(employee.vehicle_type);
-    setStatus(employee.status);
-
-    setLatitude(
-      employee.current_latitude !== null
-        ? String(employee.current_latitude)
-        : ""
-    );
-
-    setLongitude(
-      employee.current_longitude !== null
-        ? String(employee.current_longitude)
-        : ""
-    );
-  }, [employee]);
+  }
 
   // ==========================================================
   // SUBMIT

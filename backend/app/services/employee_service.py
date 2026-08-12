@@ -75,7 +75,9 @@ class EmployeeService:
         # Validate status
         # ----------------------------------------------------
 
-        if employee_data.status not in [
+        status = employee_data.status.upper()
+
+        if status not in [
             "ACTIVE",
             "INACTIVE"
         ]:
@@ -94,7 +96,7 @@ class EmployeeService:
             email=str(employee_data.email),
             branch_id=employee_data.branch_id,
             vehicle_type=employee_data.vehicle_type,
-            status=employee_data.status,
+            status=status,
             current_latitude=employee_data.current_latitude,
             current_longitude=employee_data.current_longitude,
             total_deliveries=0,

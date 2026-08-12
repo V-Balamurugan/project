@@ -67,9 +67,6 @@ const BranchManagement = () => {
     return () => clearTimeout(timer);
   }, [loadBranches]);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [search]);
 
   const totalPages = Math.max(
     1,
@@ -218,9 +215,10 @@ const BranchManagement = () => {
 
               <input
                 value={search}
-                onChange={(event) =>
-                  setSearch(event.target.value)
-                }
+                onChange={(event) => {
+                  setSearch(event.target.value);
+                  setCurrentPage(1);
+                }}
                 placeholder="Search branches..."
                 className="w-full rounded-lg border border-slate-300 py-2.5 pl-10 pr-4 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               />

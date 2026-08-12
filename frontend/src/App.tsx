@@ -9,7 +9,8 @@ import AdminLayout from "./components/layouts/AdminLayout";
 import Dashboard from "./pages/Dashboard";
 import BranchManagement from "./pages/BranchManagement";
 import EmployeeManagement from "./pages/EmployeeManagement";
-import ComingSoon from "./pages/CommingSoon";
+import ComingSoon from "./pages/ComingSoon";
+import ParcelPage from "./pages/ParcelPage";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
 
           <Route
             path="/parcels"
-            element={<ComingSoon />}
+            element={<ParcelPage />}
           />
 
           <Route
