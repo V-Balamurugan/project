@@ -11,6 +11,7 @@ import BranchManagement from "./pages/BranchManagement";
 import EmployeeManagement from "./pages/EmployeeManagement";
 import ComingSoon from "./pages/ComingSoon";
 import ParcelPage from "./pages/ParcelPage";
+import DeliveryAssignments from "./pages/DeliveryAssignments";
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
 
           <Route
             path="/assignments"
-            element={<ComingSoon />}
+            element={<DeliveryAssignments />}
           />
 
           <Route

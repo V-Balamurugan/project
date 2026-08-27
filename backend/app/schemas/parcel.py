@@ -131,11 +131,12 @@ class ParcelBase(BaseModel):
             "NORMAL",
             "HIGH",
             "URGENT",
+            "CRITICAL",
         }
 
         if value not in allowed:
             raise ValueError(
-                "Priority must be LOW, NORMAL, HIGH, or URGENT."
+                "Priority must be LOW, NORMAL, HIGH, URGENT, or CRITICAL."
             )
 
         return value
@@ -296,11 +297,12 @@ class ParcelUpdate(BaseModel):
             "NORMAL",
             "HIGH",
             "URGENT",
+            "CRITICAL",
         }
 
         if value not in allowed:
             raise ValueError(
-                "Priority must be LOW, NORMAL, HIGH, or URGENT."
+                "Priority must be LOW, NORMAL, HIGH, URGENT, or CRITICAL."
             )
 
         return value
