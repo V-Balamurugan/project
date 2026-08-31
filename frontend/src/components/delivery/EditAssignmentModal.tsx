@@ -71,7 +71,7 @@ export const EditAssignmentModal: React.FC<EditAssignmentModalProps> = ({
         if (targetParcel) {
           setParcel(targetParcel);
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("Failed to load edit modal options:", err);
       } finally {
         setLoadingData(false);
@@ -111,11 +111,12 @@ export const EditAssignmentModal: React.FC<EditAssignmentModalProps> = ({
 
       onSuccess(updated);
       onClose();
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Failed to update assignment:", err);
+      const apiErr = err as { response?: { data?: { detail?: string } }; message?: string };
       const detail =
-        err?.response?.data?.detail ||
-        err?.message ||
+        apiErr?.response?.data?.detail ||
+        apiErr?.message ||
         "Failed to update assignment. Please try again.";
       setError(detail);
     } finally {

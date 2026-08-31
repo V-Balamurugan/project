@@ -94,7 +94,7 @@ export const CreateAssignmentModal: React.FC<CreateAssignmentModalProps> = ({
         if (preSelectedParcelId) {
           setSelectedParcelId(String(preSelectedParcelId));
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("Failed to load assignment form options:", err);
         setError("Unable to load active employees or parcels. Please try again.");
       } finally {
@@ -145,11 +145,12 @@ export const CreateAssignmentModal: React.FC<CreateAssignmentModalProps> = ({
 
       onSuccess(assignment);
       onClose();
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Failed to create assignment:", err);
+      const apiErr = err as { response?: { data?: { detail?: string } }; message?: string };
       const detail =
-        err?.response?.data?.detail ||
-        err?.message ||
+        apiErr?.response?.data?.detail ||
+        apiErr?.message ||
         "Failed to assign delivery. Please try again.";
       setError(detail);
     } finally {

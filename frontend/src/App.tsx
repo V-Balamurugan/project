@@ -12,6 +12,8 @@ import EmployeeManagement from "./pages/EmployeeManagement";
 import ComingSoon from "./pages/ComingSoon";
 import ParcelPage from "./pages/ParcelPage";
 import DeliveryAssignments from "./pages/DeliveryAssignments";
+import DeliveryTracking from "./pages/DeliveryTracking";
+import MapTest from "./pages/MapTest";
 
 function App() {
   return (
@@ -50,9 +52,13 @@ function App() {
 
           <Route
             path="/tracking"
-            element={<ComingSoon />}
+            element={<DeliveryTracking />}
           />
-
+          {/* Map Test */}
+          <Route
+            path="/map-test"
+            element={<MapTest />}
+          />
           {/* Intelligence */}
           <Route
             path="/routes"

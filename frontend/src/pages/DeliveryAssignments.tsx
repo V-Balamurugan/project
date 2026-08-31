@@ -136,10 +136,11 @@ const DeliveryAssignments: React.FC = () => {
       setAssignments(response.items || []);
       setTotal(response.total || 0);
       setTotalPages(response.total_pages || 0);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Failed to fetch delivery assignments:", err);
+      const apiErr = err as { response?: { data?: { detail?: string } } };
       setError(
-        err?.response?.data?.detail || "Unable to load delivery assignments."
+        apiErr?.response?.data?.detail || "Unable to load delivery assignments."
       );
     } finally {
       setLoading(false);
@@ -184,11 +185,12 @@ const DeliveryAssignments: React.FC = () => {
         `Status updated to ${newStatus} for ${statusAssignment.assignment_code}.`
       );
       fetchAssignments();
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Failed to update assignment status:", err);
+      const apiErr = err as { response?: { data?: { detail?: string } }; message?: string };
       setStatusError(
-        err?.response?.data?.detail ||
-          err?.message ||
+        apiErr?.response?.data?.detail ||
+          apiErr?.message ||
           "Failed to update assignment status."
       );
     } finally {
@@ -218,10 +220,11 @@ const DeliveryAssignments: React.FC = () => {
       await cancelDeliveryAssignment(assignment.id);
       showNotification(`Assignment ${assignment.assignment_code} cancelled.`);
       fetchAssignments();
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Failed to cancel assignment:", err);
+      const apiErr = err as { response?: { data?: { detail?: string } } };
       alert(
-        err?.response?.data?.detail ||
+        apiErr?.response?.data?.detail ||
           "Failed to cancel assignment. Please try again."
       );
     }
