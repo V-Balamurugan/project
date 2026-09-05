@@ -13,6 +13,10 @@ import ComingSoon from "./pages/ComingSoon";
 import ParcelPage from "./pages/ParcelPage";
 import DeliveryAssignments from "./pages/DeliveryAssignments";
 import DeliveryTracking from "./pages/DeliveryTracking";
+import RouteOptimization from "./pages/RouteOptimization";
+import { VehicleManagement } from "./pages/VehicleManagement";
+import { PickupOperations } from "./pages/PickupOperations";
+import { HubOperations } from "./pages/HubOperations";
 import MapTest from "./pages/MapTest";
 
 function App() {
@@ -29,20 +33,20 @@ function App() {
             element={<Dashboard />}
           />
 
-          {/* Operations */}
-          <Route
-            path="/branches"
-            element={<BranchManagement />}
-          />
-
-          <Route
-            path="/employees"
-            element={<EmployeeManagement />}
-          />
-
+          {/* 14-Stage Operations */}
           <Route
             path="/parcels"
             element={<ParcelPage />}
+          />
+
+          <Route
+            path="/pickup-operations"
+            element={<PickupOperations />}
+          />
+
+          <Route
+            path="/hub-operations"
+            element={<HubOperations />}
           />
 
           <Route
@@ -54,15 +58,32 @@ function App() {
             path="/tracking"
             element={<DeliveryTracking />}
           />
+
+          <Route
+            path="/vehicles"
+            element={<VehicleManagement />}
+          />
+
+          <Route
+            path="/branches"
+            element={<BranchManagement />}
+          />
+
+          <Route
+            path="/employees"
+            element={<EmployeeManagement />}
+          />
+
           {/* Map Test */}
           <Route
             path="/map-test"
             element={<MapTest />}
           />
+
           {/* Intelligence */}
           <Route
             path="/routes"
-            element={<ComingSoon />}
+            element={<RouteOptimization />}
           />
 
           <Route

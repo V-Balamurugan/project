@@ -9,6 +9,7 @@ from app.models import (
     Parcel,
     DeliveryAssignment,
     DeliveryTracking,
+    RoutePlan,
 )
 
 from app.routers.delivery_assignment import (
@@ -17,6 +18,10 @@ from app.routers.delivery_assignment import (
 
 from app.routers.delivery_tracking import (
     router as delivery_tracking_router
+)
+
+from app.routers.route_optimization import (
+    router as route_optimization_router
 )
 
 from app.routers.dashboard import (
@@ -34,6 +39,11 @@ from app.routers.employee import (
 from app.routers.parcel import (
     router as parcel_router
 )
+
+from app.routers.vehicle import (
+    router as vehicle_router
+)
+
 
 
 # ---------------------------------------------------------
@@ -104,6 +114,16 @@ app.include_router(
 app.include_router(
     delivery_tracking_router
 )
+
+app.include_router(
+    route_optimization_router
+)
+
+app.include_router(
+    vehicle_router
+)
+
+
 
 
 # ---------------------------------------------------------

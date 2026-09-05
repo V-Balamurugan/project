@@ -237,7 +237,106 @@ export default function Dashboard() {
         ))}
       </div>
 
+      {/* 14-Stage Real-World Operations Pipeline */}
+
+      <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 text-white shadow-xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-4">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
+              <h2 className="text-base font-bold text-white tracking-wide">
+                14-Stage Courier Lifecycle Pipeline
+              </h2>
+            </div>
+            <p className="mt-1 text-xs text-slate-400">
+              End-to-end multi-leg execution: First-mile pickup, middle-mile inter-city transport, and last-mile dispatch
+            </p>
+          </div>
+          <Link
+            to="/tracking"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white transition self-start sm:self-auto"
+          >
+            Live GPS Telemetry →
+          </Link>
+        </div>
+
+        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link
+            to="/pickup-operations"
+            className="group rounded-xl border border-slate-800 bg-slate-900/70 p-4 transition hover:border-emerald-500/50 hover:bg-slate-900"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                Leg 1 & 2
+              </span>
+              <span className="text-lg">🛵</span>
+            </div>
+            <h3 className="mt-2.5 text-sm font-bold text-white group-hover:text-emerald-400 transition">
+              First-Mile Pickup
+            </h3>
+            <p className="mt-1 text-xs text-slate-400">
+              Sender booking, pickup rider dispatch & sender hub check-in
+            </p>
+          </Link>
+
+          <Link
+            to="/hub-operations"
+            className="group rounded-xl border border-slate-800 bg-slate-900/70 p-4 transition hover:border-indigo-500/50 hover:bg-slate-900"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">
+                Leg 3
+              </span>
+              <span className="text-lg">🏢</span>
+            </div>
+            <h3 className="mt-2.5 text-sm font-bold text-white group-hover:text-indigo-400 transition">
+              Middle-Mile Hubs
+            </h3>
+            <p className="mt-1 text-xs text-slate-400">
+              Sender hub sorting bay, van manifests & inter-city highway linehaul
+            </p>
+          </Link>
+
+          <Link
+            to="/assignments"
+            className="group rounded-xl border border-slate-800 bg-slate-900/70 p-4 transition hover:border-blue-500/50 hover:bg-slate-900"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
+                Leg 4
+              </span>
+              <span className="text-lg">📦</span>
+            </div>
+            <h3 className="mt-2.5 text-sm font-bold text-white group-hover:text-blue-400 transition">
+              Last-Mile Dispatch
+            </h3>
+            <p className="mt-1 text-xs text-slate-400">
+              Receiver hub unloading, local delivery courier assignment & POD
+            </p>
+          </Link>
+
+          <Link
+            to="/vehicles"
+            className="group rounded-xl border border-slate-800 bg-slate-900/70 p-4 transition hover:border-amber-500/50 hover:bg-slate-900"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                Fleet
+              </span>
+              <span className="text-lg">🚚</span>
+            </div>
+            <h3 className="mt-2.5 text-sm font-bold text-white group-hover:text-amber-400 transition">
+              Transport Fleet
+            </h3>
+            <p className="mt-1 text-xs text-slate-400">
+              Inter-city linehaul vans, trucks, payload capacity & GPS telemetry
+            </p>
+          </Link>
+        </div>
+      </div>
+
       {/* Delivery Assignment Quick Section */}
+
       <div className="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-100 pb-5">
           <div>

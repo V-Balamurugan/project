@@ -24,38 +24,53 @@ const navigation: NavSection[] = [
   },
 
   {
-    title: "Operations",
+    title: "Operations & 14-Stage Journey",
     items: [
       {
-        label: "Branches",
-        path: "/branches",
-        icon: "⌂",
-      },
-      {
-        label: "Employees",
-        path: "/employees",
-        icon: "♙",
-      },
-      {
-        label: "Parcels",
+        label: "Parcels Booking",
         path: "/parcels",
-        icon: "▣",
+        icon: "📦",
       },
       {
-        label: "Delivery Assignments",
+        label: "First-Mile Pickup",
+        path: "/pickup-operations",
+        icon: "🛵",
+      },
+      {
+        label: "Middle-Mile Hubs",
+        path: "/hub-operations",
+        icon: "🏢",
+      },
+      {
+        label: "Last-Mile Dispatch",
         path: "/assignments",
         icon: "⇄",
       },
       {
-        label: "Delivery Tracking",
+        label: "Live Delivery Tracking",
         path: "/tracking",
         icon: "➤",
+      },
+      {
+        label: "Fleet Vehicles",
+        path: "/vehicles",
+        icon: "🚚",
+      },
+      {
+        label: "Branch Hubs",
+        path: "/branches",
+        icon: "⌂",
+      },
+      {
+        label: "Employees & Drivers",
+        path: "/employees",
+        icon: "♙",
       },
     ],
   },
 
   {
-    title: "Intelligence",
+    title: "Intelligence & Routing",
     items: [
       {
         label: "Route Optimization",
@@ -81,7 +96,7 @@ const navigation: NavSection[] = [
   },
 
   {
-    title: "Maps",
+    title: "System & Maps",
     items: [
       {
         label: "Live Map",
@@ -92,22 +107,6 @@ const navigation: NavSection[] = [
         label: "Branch Map",
         path: "/branch-map",
         icon: "⌖",
-      },
-    ],
-  },
-
-  {
-    title: "System",
-    items: [
-      {
-        label: "Reports",
-        path: "/reports",
-        icon: "▤",
-      },
-      {
-        label: "Settings",
-        path: "/settings",
-        icon: "⚙",
       },
       {
         label: "System Status",
@@ -158,7 +157,7 @@ const Sidebar = () => {
                   to={item.path}
                   className={({ isActive }) =>
                     [
-                      "group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                      "group flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium transition-all duration-200",
                       isActive
                         ? "bg-white text-slate-900 shadow-sm"
                         : "text-slate-300 hover:bg-slate-800 hover:text-white",
@@ -169,7 +168,7 @@ const Sidebar = () => {
                     <>
                       <span
                         className={[
-                          "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm transition",
+                          "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-sm transition",
                           isActive
                             ? "bg-slate-900 text-white"
                             : "bg-slate-800 text-slate-400 group-hover:bg-slate-700 group-hover:text-white",
@@ -192,17 +191,7 @@ const Sidebar = () => {
 
       {/* Admin Profile */}
       <div className="border-t border-slate-800 p-3">
-        <NavLink
-          to="/profile"
-          className={({ isActive }) =>
-            [
-              "flex items-center gap-3 rounded-xl p-3 transition",
-              isActive
-                ? "bg-slate-800"
-                : "bg-slate-900 hover:bg-slate-800",
-            ].join(" ")
-          }
-        >
+        <div className="flex items-center gap-3 rounded-xl p-3 bg-slate-900">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-700 text-sm font-bold">
             A
           </div>
@@ -218,7 +207,7 @@ const Sidebar = () => {
           </div>
 
           <span className="h-2 w-2 rounded-full bg-emerald-400" />
-        </NavLink>
+        </div>
       </div>
     </aside>
   );
